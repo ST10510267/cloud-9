@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud 9 - Events</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <!-- Fixed image path to use _images/ -->
+            <img src="_images/nav_logo.png" alt="Cloud 9 Logo">
+        </a>
+    </div>
+
+    <!-- Hamburger Icon Button (Properly placed inside header navbar) -->
+    <button class="hamburger" id="hamburger-btn" onclick="toggleMenu(event)" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="events.html" class="active">EVENTS</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <!-- Main Split-Screen Layout -->
+    <main class="hero-container">
+        <!-- Left Side: Flyer Poster -->
+        <section class="hero-right" style="background: #030712; display: flex; align-items: center; justify-content: center;">
+            <img src="_images/halloween_flyer.jpg" alt="Cloud 9 Halloween Event Flyer" class="poster">
+        </section>
+
+        <!-- Right Side: Text Details with Red & Blue Glows -->
+        <section class="hero-left" style="align-items: flex-start; justify-content: center; padding: 60px; background: radial-gradient(circle at 80% 30%, rgba(220, 38, 38, 0.15) 0%, rgba(3, 7, 18, 0.95) 70%);">
+            <div class="hero-text" style="max-width: 550px;">
+                <h1 style="font-size: 42px; font-weight: 900; letter-spacing: 2px; line-height: 1.15; margin-bottom: 30px; color: #ffffff; text-shadow: 0 0 15px rgba(239, 68, 68, 0.7), 0 0 30px rgba(56, 189, 248, 0.5);">
+                    <span style="color: #38bdf8; text-shadow: 0 0 15px rgba(56, 189, 248, 0.9), 0 0 30px rgba(0, 140, 255, 0.6);">CLOUD 9</span><br>
+                    <span style="color: #ef4444; text-shadow: 0 0 15px rgba(239, 68, 68, 0.9), 0 0 30px rgba(220, 38, 38, 0.6);">HALLOWEEN</span>
+                </h1>
+
+                <p style="font-size: 13px; font-weight: 800; letter-spacing: 1.5px; color: #38bdf8; margin-bottom: 8px; text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);">
+                    DATE & TIME
+                </p>
+                <p style="font-size: 15px; color: #e2e8f0; margin-bottom: 25px;">
+                    Saturday, 31 October | 8:00 PM - 2:00 AM
+                </p>
+
+                <p style="font-size: 15px; color: #cbd5e1; margin-bottom: 30px; font-weight: 600;">
+                    Good Music &bull; Spooky Vibes &bull; Best Dressed Contest
+                </p>
+
+                <p style="font-size: 13px; font-weight: 800; letter-spacing: 1.5px; color: #38bdf8; margin-bottom: 12px; text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);">
+                    ENTRY & RULES
+                </p>
+                <ul style="list-style-type: disc; padding-left: 20px; color: #cbd5e1; font-size: 15px; line-height: 1.9;">
+                    <li>FREE ENTRY all night</li>
+                    <li>Best Dressed wins a Bottle</li>
+                    <li>Strictly 18+ Only</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Stylized Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Cloud 9 Sports Bar. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <span>&bull;</span>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburgerBtn && navMenu) {
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    // Toggle Hours Accordion Dropdown
+    function toggleHours() {
+        const panel = document.getElementById('hoursPanel');
+        const arrow = document.getElementById('arrowIcon');
+        if (panel) {
+            panel.classList.toggle('open');
+        }
+        if (arrow) {
+            arrow.classList.toggle('rotate');
+        }
+    }
+</script>
+</body>
+</html>

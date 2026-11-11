@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud 9 - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="_images/nav_logo.png" alt="Cloud 9 Logo">
+            </a>
+        </div>
+
+        <!-- Hamburger Icon Button (Properly placed inside header navbar) -->
+        <button class="hamburger" id="hamburger-btn" onclick="toggleMenu(event)" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="menu.html">MENU</a></li>
+                <li><a href="events.html">EVENTS</a></li>
+                <li><a href="contact.html">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="hero-container">
+        <!-- Left Side: Content, Larger Logo & Button -->
+        <section class="hero-left">
+            <div class="hero-text">
+                <h1>ULTIMATE SPORTS<br>EXPERIENCE</h1>
+                <p>Catch every game with friends at our lively sports bar!</p>
+            </div>
+            
+            <div class="brand-graphic">
+                <img src="_images/nav_logo.png" alt="Cloud 9 Glowing Graphic" class="glowing-logo">
+            </div>
+
+            <div class="hero-action">
+                <a href="contact.html" class="btn-join">JOIN US FOR THE GAME</a>
+            </div>
+        </section>
+
+        <!-- Right Side: Venue Background Image -->
+        <section class="hero-right">
+            <img src="_images/home_hero.jpg" alt="Cloud 9 Venue Rooftop View">
+        </section>
+    </main>
+
+    <!-- Stylized Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Cloud 9 Sports Bar. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <span>&bull;</span>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburgerBtn && navMenu) {
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    // Toggle Hours Accordion Dropdown
+    function toggleHours() {
+        const panel = document.getElementById('hoursPanel');
+        const arrow = document.getElementById('arrowIcon');
+        if (panel) {
+            panel.classList.toggle('open');
+        }
+        if (arrow) {
+            arrow.classList.toggle('rotate');
+        }
+    }
+</script>
+</body>
+</html>

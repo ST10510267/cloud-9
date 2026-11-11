@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud 9 - About Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <!-- Fixed image path to use _images/ -->
+            <img src="_images/nav_logo.png" alt="Cloud 9 Logo">
+        </a>
+    </div>
+
+    <!-- Hamburger Icon Button (Properly placed inside header navbar) -->
+    <button class="hamburger" id="hamburger-btn" onclick="toggleMenu(event)" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html" class="active">ABOUT US</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="events.html">EVENTS</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <!-- Main Content Section (Reversed Layout for About Us) -->
+    <main class="hero-container">
+        <!-- Left Side: Building Image -->
+        <section class="hero-right">
+            <img src="_images/about_us_hero.jpg" alt="Cloud 9 Umhlanga Building">
+        </section>
+
+        <!-- Right Side: Story & Gradient Background -->
+        <section class="hero-left" style="align-items: flex-start; justify-content: center; padding: 60px;">
+            <div class="hero-text">
+                <h1 style="font-size: 40px; font-weight: 900; letter-spacing: 2px; margin-bottom: 24px;">OUR STORY</h1>
+                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px; color: #e2e8f0;">
+                    Cloud 9 Sports Bar is a premier destination for sports enthusiasts in Umhlanga.
+                </p>
+                <p style="font-size: 16px; line-height: 1.6; color: #94a3b8;">
+                    We offer a vibrant atmosphere where friends can gather, cheer for their teams, and enjoy delicious food and drinks.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Stylized Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Cloud 9 Sports Bar. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <span>&bull;</span>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburgerBtn && navMenu) {
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    // Toggle Hours Accordion Dropdown
+    function toggleHours() {
+        const panel = document.getElementById('hoursPanel');
+        const arrow = document.getElementById('arrowIcon');
+        if (panel) {
+            panel.classList.toggle('open');
+        }
+        if (arrow) {
+            arrow.classList.toggle('rotate');
+        }
+    }
+
+</script>
+</body>
+</html>
